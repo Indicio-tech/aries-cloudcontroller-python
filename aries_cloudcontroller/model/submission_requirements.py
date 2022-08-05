@@ -28,7 +28,7 @@ class SubmissionRequirements(BaseModel):
 
     count: Optional[int] = None
     from_: Optional[str] = Field(None, alias="from")
-    from_nested: Optional[List[SubmissionRequirements]] = None
+    from_nested: Optional[List[Dict]] = None
     max: Optional[int] = None
     min: Optional[int] = None
     name: Optional[str] = None
@@ -40,7 +40,7 @@ class SubmissionRequirements(BaseModel):
         *,
         count: Optional[int] = None,
         from_: Optional[str] = None,
-        from_nested: Optional[List[SubmissionRequirements]] = None,
+        from_nested: Optional[List[Dict]] = None,
         max: Optional[int] = None,
         min: Optional[int] = None,
         name: Optional[str] = None,

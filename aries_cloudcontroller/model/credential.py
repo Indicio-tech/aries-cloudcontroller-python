@@ -27,10 +27,10 @@ class Credential(BaseModel):
         proof: The proof of the credential [Optional].
     """
 
-    context: List[Dict] = Field(..., alias="@context")
+    context: List[Union[Dict, str]] = Field(..., alias="@context")
     credential_subject: Dict[str, Any] = Field(..., alias="credentialSubject")
     issuance_date: str = Field(..., alias="issuanceDate")
-    issuer: Dict[str, Any]
+    issuer: Union[Dict, str]
     type: List[str]
     expiration_date: Optional[str] = Field(None, alias="expirationDate")
     id: Optional[str] = None
@@ -39,10 +39,10 @@ class Credential(BaseModel):
     def __init__(
         self,
         *,
-        context: List[Dict] = None,
+        context: List[Union[Dict, str]] = None,
         credential_subject: Dict[str, Any] = None,
         issuance_date: str = None,
-        issuer: Dict[str, Any] = None,
+        issuer: Union[Dict, str] = None,
         type: List[str] = None,
         expiration_date: Optional[str] = None,
         id: Optional[str] = None,
